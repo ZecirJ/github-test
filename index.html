@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 <html lang="de">
-<head><meta charset="UTF-8"><title>Mein GitHub-Test</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Klick-Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 60px; }
+    button { font-size: 20px; padding: 10px 20px; cursor: pointer; }
+  </style>
+</head>
 <body>
-  <h1 style="color: green;">Hallo Welt B!</h1>
-  <p><a href="about.html">Zur Über-diese-Seite</a></p>
+  <h1 id="titel">Klick mich!</h1>
+  <button id="knopf">Klick</button>
+  <p>Anzahl Klicks: <span id="zaehler">0</span></p>
+  <script>
+    let klicks = 0;
+    const knopf = document.getElementById("knopf");
+    knopf.addEventListener("click", function () {
+      klicks = klicks + 1;
+      document.getElementById("zaehler").textContent = klicks;
+      document.getElementById("titel").style.color = klicks % 2 === 0 ? "blue" : "red";
+    });
+  </script>
 </body>
 </html>
